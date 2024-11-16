@@ -3,11 +3,11 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <Footer className="Footer">
       <p>Контакты</p>
       <p>О нас</p>
       {/* Добавьте ссылки на социальные сети */}
-    </footer>
+    </Footer>
   );
 };
 
