@@ -1,0 +1,24 @@
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .navigation {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .navigation a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  /* Адаптивные стили */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+    }
+  }
+  
