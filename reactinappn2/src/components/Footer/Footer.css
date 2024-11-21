@@ -1,0 +1,43 @@
+/* Общие стили для футера */
+.Footer {
+    background-color: #333; /* Темный фон */
+    color: #fff; /* Светлый текст */
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+  
+  /* Контактные ссылки */
+  .Footer p {
+    margin: 10px 0;
+    cursor: pointer;
+    transition: color 0.3s ease; /* Анимация при наведении */
+  }
+  
+  /* Эффекты при наведении */
+  .Footer p:hover {
+    color: #ffa500; /* Изменение цвета текста на оранжевый */
+    text-decoration: underline;
+  }
+  
+  /* Responsive: уменьшение шрифта на малых экранах */
+  @media (max-width: 768px) {
+    .Footer {
+      font-size: 12px;
+      padding: 10px;
+    }
+  }
+  .Footer {
+    animation: fadeIn 1s ease;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

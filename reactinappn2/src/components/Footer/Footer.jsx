@@ -1,13 +1,14 @@
 import React from 'react';
-//import './Footer.css';
+import './Footer.css';
 
 const Footer = () => {
   return (
-    <Footer className="Footer">
-      <p>Контакты</p>
-      <p>О нас</p>
+    <footer className="Footer">
+      <p title="Напишите нам на No@sabra.com">Контакты</p>
+<p title="Узнайте больше о нашей команде">О нас</p>
+
       {/* Добавьте ссылки на социальные сети */}
-    </Footer>
+    </footer>
   );
 };
 

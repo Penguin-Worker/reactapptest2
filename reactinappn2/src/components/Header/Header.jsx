@@ -6,10 +6,10 @@ import './Header.css';
 
 const Header = () => {
   return (
-    <Header className="Header">
+    <header className="Header">
       <Navigation />
       <ProfileMenu />
-    </Header>
+    </header>
   );
 };
 
