@@ -19,15 +19,8 @@ const ItemCard = ({ item, onSelect, onEdit, onToggleSelect, onDelete, isSelected
       <button onClick={(e) => { e.stopPropagation(); onSelect(); }}>
         Подробнее
       </button>
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          onEdit(); // Открытие модального окна для редактирования
-        }}
-      >
-        
-        Удалить
-      </button>
+      
+      <button onClick={onDelete}>Удалить</button>
     </div>
   );
 };

@@ -19,8 +19,9 @@ const ItemsList = () => {
   };
 
   // Функция удаления элемента
-  const deleteItem = (id) => {
-    setItems(items.filter((item) => item.id !== id));
+  const deleteItem = (itemId) => {
+    setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+    setSelectedItem(null); // Закрытие модального окна после удаления
   };
 
   // Функция переключения выделения элемента
@@ -56,7 +57,7 @@ const ItemsList = () => {
             key={item.id}
             item={item}
             onSelect={() => setSelectedItem(item)}
-            onDelete={deleteItem}
+            onDelete={() => deleteItem(item.id)}
             onEdit={() => setEditingItem(item)} // Установка редактируемого элемента
             isSelected={selectedIds.includes(item.id)} 
             onToggleSelect={() => toggleSelectItem(item.id)}
