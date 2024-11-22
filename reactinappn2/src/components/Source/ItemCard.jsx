@@ -1,17 +1,17 @@
 import React from 'react';
 import './ItemCard.css';
 
-const ItemCard = ({ item, onSelect, onToggleSelect, onDelete, isSelected }) => {
+const ItemCard = ({ item, onSelect, onEdit, onToggleSelect, onDelete, isSelected }) => {
   return (
     <div
-      className={`ItemCard ${isSelected ? 'selected' : ''}`}
-      onClick={onToggleSelect} // Выделение по клику
+      className="ItemCard"
+      onClick={onToggleSelect}
       style={{
         border: '1px solid #ccc',
         borderRadius: '10px',
         padding: '10px',
         cursor: 'pointer',
-        backgroundColor: isSelected ? '#f0f8ff' : '#fff', // Подсветка
+        backgroundColor: isSelected ? '#f0f8ff' : '#fff',
       }}
     >
       <h3>{item.name}</h3>
@@ -22,9 +22,10 @@ const ItemCard = ({ item, onSelect, onToggleSelect, onDelete, isSelected }) => {
       <button
         onClick={(e) => {
           e.stopPropagation();
-          onDelete(item.id);
+          onEdit(); // Открытие модального окна для редактирования
         }}
       >
+        
         Удалить
       </button>
     </div>

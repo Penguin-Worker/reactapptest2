@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import itemsData from '../../data/items.json'; // Базоввые данных
-import ItemCard from '../../Source/ItemCard'; 
+import React, { useState } from 'react';
+import itemsData from '../../data/items.json'; // Базовые данные
+import ItemCard from '../../Source/ItemCard';
 import Modal from '../../Source/Modal';
 import ItemForm from './ItemForm';
 import './ItemList.css';
+
 const ItemsList = () => {
   const [items, setItems] = useState(itemsData);
   const [selectedItem, setSelectedItem] = useState(null);
-  const [selectedIds, setSelectedIds] = useState([]); // Состояние для ID выбранных элементов
+  const [selectedIds, setSelectedIds] = useState([]); // Состояние выбранных элементов
+  const [editingItem, setEditingItem] = useState(null); // Для редактирования
 
   // Функция добавления нового элемента
   const addItem = (newItem) => {
@@ -19,7 +21,6 @@ const ItemsList = () => {
   // Функция удаления элемента
   const deleteItem = (id) => {
     setItems(items.filter((item) => item.id !== id));
-    setSelectedIds(selectedIds.filter((selectedId) => selectedId !== id)); // Убираем ID из выбранных
   };
 
   // Функция переключения выделения элемента
@@ -31,9 +32,19 @@ const ItemsList = () => {
     }
   };
 
+  // Функция сохранения изменений
+  const saveItem = (updatedItem) => {
+    setItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === updatedItem.id ? updatedItem : item
+      )
+    );
+    setEditingItem(null); // Закрытие модального окна после сохранения
+  };
+
   return (
     <div>
-      <h1>Items List</h1>
+      <h1>Items List Basic(add/delete/update)</h1>
 
       {/* Форма для добавления нового элемента */}
       <ItemForm onSubmit={addItem} />
@@ -45,16 +56,21 @@ const ItemsList = () => {
             key={item.id}
             item={item}
             onSelect={() => setSelectedItem(item)}
-            onToggleSelect={() => toggleSelectItem(item.id)} // Добавляем возможность выделения
             onDelete={deleteItem}
-            isSelected={selectedIds.includes(item.id)} // Передаем статус выделения
+            onEdit={() => setEditingItem(item)} // Установка редактируемого элемента
+            isSelected={selectedIds.includes(item.id)} 
+            onToggleSelect={() => toggleSelectItem(item.id)}
           />
         ))}
       </div>
 
-      {/* Модальное окно */}
-      {selectedItem && (
-        <Modal item={selectedItem} onClose={() => setSelectedItem(null)} />
+     {/* Модальное окно для отображения подробной информации */}
+     {selectedItem && (
+        <Modal
+          item={selectedItem}
+          onClose={() => setSelectedItem(null)}  // Закрытие модального окна
+          onSubmit={saveItem} // Передаем функцию сохранения
+        />
       )}
     </div>
   );
