@@ -1,0 +1,24 @@
+.ItemList {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+
+  
+  .ItemList button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .ItemList button:hover {
+    background-color: #ff0000;
+  }
+  

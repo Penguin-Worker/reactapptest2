@@ -1,27 +1,38 @@
 import React, { useState } from 'react';
 
-function ItemForm({ onAddItem }) {
-  const [inputValue, setInputValue] = useState('');
+const ItemForm = ({ onSubmit }) => {
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputValue.trim()) {
-      onAddItem(inputValue);
-      setInputValue('');
+    if (name && description) {
+      onSubmit({ name, description }); // Передача данных в родительский компонент
+      setName('');
+      setDescription('');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} style={{ marginBottom: '20px' }}>
       <input
         type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Add new item"
+        placeholder="Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        required
+        style={{ marginRight: '10px' }}
       />
-      <button type="submit">Add</button>
+      <textarea
+        placeholder="Description"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        required
+        style={{ marginRight: '10px' }}
+      />
+      <button type="submit">Add Item</button>
     </form>
   );
-}
+};
 
 export default ItemForm;
