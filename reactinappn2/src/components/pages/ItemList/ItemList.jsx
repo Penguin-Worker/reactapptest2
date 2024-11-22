@@ -44,21 +44,20 @@ const ItemsList = () => {
   };
 
   return (
-    <div>
+    <div className="items-list" >
       <h1>Items List Basic(add/delete/update)</h1>
 
-      {/* Форма для добавления нового элемента */}
       <ItemForm onSubmit={addItem} />
 
       {/* Карточки элементов */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+      <div className="items-list" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
         {items.map((item) => (
           <ItemCard
             key={item.id}
             item={item}
             onSelect={() => setSelectedItem(item)}
             onDelete={() => deleteItem(item.id)}
-            onEdit={() => setEditingItem(item)} // Установка редактируемого элемента
+            onEdit={() => setEditingItem(item)} 
             isSelected={selectedIds.includes(item.id)} 
             onToggleSelect={() => toggleSelectItem(item.id)}
           />
