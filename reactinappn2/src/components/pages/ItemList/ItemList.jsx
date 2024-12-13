@@ -64,11 +64,11 @@ const ItemsList = () => {
         ))}
       </div>
 
-     {/* Модальное окно для отображения подробной информации */}
+     {/* Модальное окно*/}
      {selectedItem && (
         <Modal
           item={selectedItem}
-          onClose={() => setSelectedItem(null)}  // Закрытие модального окна
+          onClose={() => setSelectedItem(null)} 
           onSubmit={saveItem} // Передаем функцию сохранения
         />
       )}
