@@ -10,7 +10,7 @@ const Header = () => {
     <AppBar position="static" color="primary">
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          My Application
+          Test Application
         </Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
           <Navigation />

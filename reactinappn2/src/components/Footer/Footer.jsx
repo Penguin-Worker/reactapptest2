@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Link } from '@mui/material';
 const Footer = () => {
   return (
     <Box 
@@ -12,12 +12,15 @@ const Footer = () => {
         textAlign: 'center'
       }}
     >
-      <Typography variant="body1" title="Напишите нам на No@sabra.com">
+      <Typography variant="body1" >
+        <Link href="/" color="inherit" sx={{'&:hover':{color:'#ffa500',},}} title="Напишите нам на No@sabra.com"> 
         Контакты
-      </Typography>
-      <Typography variant="body1" title="Узнайте больше о нашей команде">
+        </Link>{' '}
+       |{' '}      
+      <Link href="/" color="inherit"sx={{'&:hover':{color:'#ffa500',},}} title="Узнайте больше о нашей команде">
         О нас
-      </Typography>
+      </Link>
+      </Typography> 
     </Box>
   );
 };
