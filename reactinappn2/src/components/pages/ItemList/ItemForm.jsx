@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-
+import { Button, Snackbar } from '@mui/material';
 const ItemForm = ({ item, onSubmit }) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-
+  const [openSnackbar, setOpenSnackbar] = useState(false);
   useEffect(() => {
     if (item) {
       setName(item.name);
@@ -22,6 +22,7 @@ const ItemForm = ({ item, onSubmit }) => {
       };
       
       onSubmit(updatedItem); // Отправляем обновленный объект
+      setOpenSnackbar(true);
     }
   };
 
@@ -45,8 +46,18 @@ const ItemForm = ({ item, onSubmit }) => {
           required
         />
       </div>
-      <button type="submit">{item ? 'Сохранить' : 'Добавить'}</button>
+      <Button type="submit" variant="contained" color="primary">
+        {item ? 'Сохранить' : 'Добавить'}
+        </Button>
+        <Snackbar
+        
+        open={openSnackbar}
+        message="Изменения сохранены!"
+        autoHideDuration={3000} // Автоматически скрывается через 3 секунды
+        onClose={() => setOpenSnackbar(false)} // Закрытие уведомления
+      />
     </form>
+    
   );
 };
 
