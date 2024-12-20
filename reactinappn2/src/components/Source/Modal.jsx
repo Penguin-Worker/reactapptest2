@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@mui/material';
-import ItemForm from '../pages/ItemList/ItemForm'; // Форма редактирования элемента
+import ItemForm from '../pages/ItemList/ItemForm';
 
 const Modal = ({ item, onClose, onSubmit }) => {
   if (!item) return null;
